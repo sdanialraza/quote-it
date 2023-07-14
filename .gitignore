@@ -1,0 +1,11 @@
+# database
+dev.db
+
+# dependencies
+node_modules
+
+# env
+.env
+
+# typescript
+/dist
