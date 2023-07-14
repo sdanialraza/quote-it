@@ -10,7 +10,6 @@ export default async function getQuotes(_request: Request, response: Response) {
     const quotes = await db.quote.findMany()
     return response.status(200).json(quotes)
   } catch (error) {
-    if (error instanceof Error) return response.status(500).json(error.message)
-    else return response.status(500).json(error)
+    return response.status(500).json({ message: "An unknown error occurred, please try again later." })
   }
 }
