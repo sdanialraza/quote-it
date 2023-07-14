@@ -17,8 +17,7 @@ export default async function getQuoteById(request: Request, response: Response)
 
     if (quote) return response.status(200).json(quote)
     else return response.status(404).json({ message: "Unable to find any quote with that ID" })
-  } catch (error: unknown) {
-    if (error instanceof Error) return response.status(500).json(error.message)
-    else return response.status(500).json(error)
+  } catch (error) {
+    return response.status(500).json({ message: "An unknown error occurred, please try again later." })
   }
 }
