@@ -1,14 +1,9 @@
-import { config } from "dotenv"
+import process from "node:process"
 import cors from "cors"
 import express from "express"
+import router from "./routes/index.js"
 
-import router from "./routes"
-
-config()
-
-if (!process.env.PORT) process.exit(1)
-
-const PORT = parseInt(process.env.PORT, 10)
+const PORT = Number.parseInt(process.env.PORT, 10)
 
 const app = express()
 
