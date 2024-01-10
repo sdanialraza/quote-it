@@ -1,6 +1,7 @@
 import type { Quote } from "@prisma/client"
 import type { Request, Response } from "express"
-import { database, convertPropertiesFromDatabase } from "../../util/index.js"
+import { database } from "../../index.js"
+import { convertPropertiesFromDatabase } from "../../util/index.js"
 
 /**
  * Get a random quote.
@@ -8,7 +9,7 @@ import { database, convertPropertiesFromDatabase } from "../../util/index.js"
 export default async function getRandomQuote(_request: Request, response: Response) {
   try {
     const totalQuotes = await database.quote.count({ where: { verified: true } })
-    const randomId = Math.floor(Math.random() * totalQuotes) + 1
+    const randomId = Math.ceil(Math.random() * totalQuotes)
 
     const randomQuote: Quote = await database.quote.findUniqueOrThrow({
       where: { id: randomId, verified: true },

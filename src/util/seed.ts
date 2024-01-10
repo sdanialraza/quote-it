@@ -1,5 +1,6 @@
 import { quotes } from "../data/quotes.js"
-import { convertPropertiesForDatabase, database } from "./index.js"
+import { database } from "../index.js"
+import { convertPropertiesForDatabase } from "./index.js"
 
 const existingQuotes = await database.quote.findMany()
 

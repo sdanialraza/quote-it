@@ -1,9 +1,10 @@
 import type { Quote } from "@prisma/client"
 import type { Request, Response } from "express"
-import { database, convertPropertiesFromDatabase } from "../../util/index.js"
+import { database } from "../../index.js"
+import { convertPropertiesFromDatabase } from "../../util/index.js"
 
 /**
- * Get all the quotes by its author.
+ * Get all the quotes by their category.
  */
 export default async function getQuotesByCategory(request: Request, response: Response) {
   try {

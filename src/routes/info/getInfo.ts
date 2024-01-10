@@ -1,5 +1,6 @@
 import type { Request, Response } from "express"
-import { database, DESCRIPTION, NAME, VERSION } from "../../util/index.js"
+import { database } from "../../index.js"
+import { DESCRIPTION, NAME, VERSION } from "../../util/index.js"
 
 /**
  * Get information about the API.
