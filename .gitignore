@@ -1,5 +1,5 @@
 # database
-dev.db
+sqlite.db
 
 # dependencies
 node_modules
@@ -8,4 +8,4 @@ node_modules
 .env
 
 # typescript
-/dist
+dist
