@@ -10,7 +10,15 @@ export default async function getQuotesByAuthor(request: Request, response: Resp
   try {
     const author = request.params.author
 
+    if (!author) {
+      return response.status(400).json({ message: "The provided author is invalid." })
+    }
+
     const quotes: Quote[] = await database.quote.findMany({ where: { author: { contains: author }, verified: true } })
+
+    if (!quotes.length) {
+      return response.status(404).json({ message: `No quotes by ${author} found.` })
+    }
 
     const convertedQuotes = quotes.map(convertPropertiesFromDatabase)
 

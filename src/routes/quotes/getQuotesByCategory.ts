@@ -10,9 +10,17 @@ export default async function getQuotesByCategory(request: Request, response: Re
   try {
     const category = request.params.category.toLowerCase()
 
+    if (!category) {
+      return response.status(400).json({ message: "The provided category is invalid." })
+    }
+
     const quotes: Quote[] = await database.quote.findMany({
       where: { category: { contains: category }, verified: true },
     })
+
+    if (!quotes.length) {
+      return response.status(404).json({ message: `No quotes in the ${category} category found.` })
+    }
 
     const convertedProperties = quotes.map(convertPropertiesFromDatabase)
 

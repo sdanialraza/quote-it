@@ -10,6 +10,10 @@ export default async function getQuotes(_request: Request, response: Response) {
   try {
     const quotes: Quote[] = await database.quote.findMany({ where: { verified: true } })
 
+    if (!quotes.length) {
+      return response.status(404).json({ message: "No quotes found." })
+    }
+
     const convertedQuotes = quotes.map(convertPropertiesFromDatabase)
 
     return response.status(200).json(convertedQuotes)
