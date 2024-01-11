@@ -21,3 +21,7 @@ export type Quote = {
   text: string
   verified: boolean
 }
+
+export type QuoteWithStringCategory = Omit<Quote, "category"> & { category: string }
+
+export type QuoteUnion = Quote | QuoteWithStringCategory
