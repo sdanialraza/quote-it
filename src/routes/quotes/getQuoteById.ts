@@ -17,13 +17,13 @@ export default async function getQuoteById(request: Request, response: Response)
     }
 
     if (id > totalQuotes) {
-      return response.status(404).json({ message: "The provided id does not exist." })
+      return response.status(404).json({ message: "The quote with the provided id does not exist." })
     }
 
     const quote: Quote | null = await database.quote.findUnique({ where: { id, verified: true } })
 
     if (!quote) {
-      return response.status(404).json({ message: "The provided id does not exist." })
+      return response.status(404).json({ message: "The quote with the provided id does not exist." })
     }
 
     return response.status(200).json(convertPropertiesFromDatabase(quote))
