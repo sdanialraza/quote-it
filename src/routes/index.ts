@@ -1,5 +1,7 @@
 import { Router } from "express"
+import { postRateLimit } from "../util/rateLimit.js"
 import getInfo from "./info/getInfo.js"
+import createQuote from "./quotes/createQuote.js"
 import getQuoteById from "./quotes/getQuoteById.js"
 import getQuotes from "./quotes/getQuotes.js"
 import getQuotesByAuthor from "./quotes/getQuotesByAuthor.js"
@@ -15,5 +17,7 @@ router.get("/quotes/:id", getQuoteById)
 router.get("/quotes/author/:author", getQuotesByAuthor)
 router.get("/quotes/category/:category", getQuotesByCategory)
 router.get("/quotes/random", getRandomQuote)
+
+router.post("/quotes", postRateLimit, createQuote)
 
 export default router
