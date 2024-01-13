@@ -13,10 +13,10 @@ const router = Router()
 router.get("/info", getInfo)
 
 router.get("/quotes", getQuotes)
+router.get("/quotes/random", getRandomQuote)
 router.get("/quotes/:id", getQuoteById)
 router.get("/quotes/author/:author", getQuotesByAuthor)
 router.get("/quotes/category/:category", getQuotesByCategory)
-router.get("/quotes/random", getRandomQuote)
 
 router.post("/quotes", postRateLimit, createQuote)
 
