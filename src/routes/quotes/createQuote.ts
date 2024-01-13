@@ -15,7 +15,7 @@ export default async function createQuote(request: Request, response: Response) 
       return response.status(400).json({ errors: validationErrors })
     }
 
-    const { author, category, submitter, text } = convertPropertiesForDatabase(quote)
+    const { author, categories, submitter, text } = convertPropertiesForDatabase(quote)
 
     const quoteExists = await database.quote.findFirst({ where: { author, text } })
 
@@ -23,7 +23,7 @@ export default async function createQuote(request: Request, response: Response) 
       return response.status(409).json({ message: "This quote already exists." })
     }
 
-    const createdQuote = await database.quote.create({ data: { author, category, submitter, text, verified: false } })
+    const createdQuote = await database.quote.create({ data: { author, categories, submitter, text, verified: false } })
 
     const convertedQuote = convertPropertiesFromDatabase(createdQuote)
 

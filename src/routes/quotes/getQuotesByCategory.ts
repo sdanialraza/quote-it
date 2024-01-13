@@ -15,7 +15,7 @@ export default async function getQuotesByCategory(request: Request, response: Re
     }
 
     const quotes: Quote[] = await database.quote.findMany({
-      where: { category: { contains: category }, verified: true },
+      where: { categories: { contains: category }, verified: true },
     })
 
     if (!quotes.length) {

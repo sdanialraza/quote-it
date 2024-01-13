@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Quote {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  author    String
-  category  String
-  submitter String
-  text      String
-  verified  Boolean
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  author     String
+  categories String
+  submitter  String
+  text       String
+  verified   Boolean
 }

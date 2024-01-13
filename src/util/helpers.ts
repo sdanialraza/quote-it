@@ -11,7 +11,7 @@ export function convertPropertiesForDatabase(quote: QuoteUnion) {
   return {
     ...quote,
     author: quote.author ?? "Unknown",
-    category: Array.isArray(quote.category) ? quote.category.join(", ") : quote.category,
+    categories: Array.isArray(quote.categories) ? quote.categories.join(", ") : quote.categories,
   }
 }
 
@@ -23,7 +23,7 @@ export function convertPropertiesForDatabase(quote: QuoteUnion) {
 export function convertPropertiesFromDatabase(quote: DatabaseQuote) {
   return {
     ...quote,
-    category: typeof quote.category === "string" ? (quote.category.split(", ") as Category[]) : quote.category,
+    categories: typeof quote.categories === "string" ? (quote.categories.split(", ") as Category[]) : quote.categories,
   }
 }
 
@@ -43,7 +43,7 @@ export function validateQuote(quote: unknown) {
     })
   }
 
-  const { author, category, submitter, text } = quote as Record<string, unknown>
+  const { author, categories, submitter, text } = quote as Record<string, unknown>
 
   if (typeof author === "string") {
     if (author.length > 30) {
@@ -61,21 +61,21 @@ export function validateQuote(quote: unknown) {
     })
   }
 
-  if (Array.isArray(category)) {
-    for (const categoryItem of category) {
-      if (typeof categoryItem === "string") {
-        if (categoryItem.length > 20) {
+  if (Array.isArray(categories)) {
+    for (const category of categories) {
+      if (typeof category === "string") {
+        if (category.length > 20) {
           errors.push({
             expected: "string.length <= 20",
             message: "Expected each category to be less than 20 characters",
-            received: `${categoryItem.length}`,
+            received: `${category.length}`,
           })
         }
       } else {
         errors.push({
           expected: "string",
-          message: `Expected each category to be a string, but received ${typeof categoryItem}`,
-          received: `${categoryItem}`,
+          message: `Expected each category to be a string, but received ${typeof category}`,
+          received: `${category}`,
         })
         break
       }
@@ -83,8 +83,8 @@ export function validateQuote(quote: unknown) {
   } else {
     errors.push({
       expected: "string[]",
-      message: `Expected the category to be an array of string, but received ${typeof category}`,
-      received: `${category}`,
+      message: `Expected the categories to be an array of string, but received ${typeof categories}`,
+      received: `${categories}`,
     })
   }
 

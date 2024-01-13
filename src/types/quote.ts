@@ -16,12 +16,12 @@ export type Category =
 
 export type Quote = {
   author?: string
-  category: Category[]
+  categories: Category[]
   submitter: string
   text: string
   verified: boolean
 }
 
-export type QuoteWithStringCategory = Omit<Quote, "category"> & { category: string }
+export type QuoteWithStringCategories = Omit<Quote, "categories"> & { categories: string }
 
-export type QuoteUnion = Quote | QuoteWithStringCategory
+export type QuoteUnion = Quote | QuoteWithStringCategories
