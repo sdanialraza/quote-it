@@ -1,6 +1,5 @@
-import type { Quote as DatabaseQuote } from "@prisma/client"
 import Filter from "bad-words"
-import type { Category, QuoteUnion, ValidationError } from "../types/index.js"
+import type { DatabaseQuote, QuoteUnion, QuoteWithCategoriesArray, ValidationError } from "../types/index.js"
 
 /**
  * Converts the properties of a quote for the database
@@ -20,10 +19,10 @@ export function convertPropertiesForDatabase(quote: QuoteUnion) {
  *
  * @param quote - The quote to convert the properties of
  */
-export function convertPropertiesFromDatabase(quote: DatabaseQuote) {
+export function convertPropertiesFromDatabase(quote: DatabaseQuote): QuoteWithCategoriesArray {
   return {
     ...quote,
-    categories: typeof quote.categories === "string" ? (quote.categories.split(", ") as Category[]) : quote.categories,
+    categories: typeof quote.categories === "string" ? quote.categories.split(", ") : quote.categories,
   }
 }
 
