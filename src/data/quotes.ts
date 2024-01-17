@@ -1,9 +1,9 @@
-import type { Quote } from "../types/index.js"
+import type { QuoteCreation } from "../types/quote.js"
 
 /**
  * Initial quotes data
  */
-export const quotes: Quote[] = [
+export const quotes: QuoteCreation[] = [
   {
     author: "Steve Jobs",
     categories: ["Work"],
