@@ -45,6 +45,14 @@ export function validateQuote(quote: unknown) {
   const { author, categories, submitter, text } = quote as Record<string, unknown>
 
   if (typeof author === "string") {
+    if (author.length < 1) {
+      errors.push({
+        expected: "string.length <= 1",
+        message: "Expected the author to be at least 1 character",
+        received: `${author.length}`,
+      })
+    }
+
     if (author.length > 30) {
       errors.push({
         expected: "string.length <= 30",
@@ -63,6 +71,14 @@ export function validateQuote(quote: unknown) {
   if (Array.isArray(categories)) {
     for (const category of categories) {
       if (typeof category === "string") {
+        if (category.length < 1) {
+          errors.push({
+            expected: "string.length <= 1",
+            message: "Expected each category to be at least 1 character",
+            received: `${category.length}`,
+          })
+        }
+
         if (category.length > 20) {
           errors.push({
             expected: "string.length <= 20",
@@ -88,6 +104,14 @@ export function validateQuote(quote: unknown) {
   }
 
   if (typeof submitter === "string") {
+    if (submitter.length < 1) {
+      errors.push({
+        expected: "string.length <= 1",
+        message: "Expected the submitter to be at least 1 character",
+        received: `${submitter.length}`,
+      })
+    }
+
     if (submitter.length > 20) {
       errors.push({
         expected: "string.length <= 20",
@@ -104,6 +128,14 @@ export function validateQuote(quote: unknown) {
   }
 
   if (typeof text === "string") {
+    if (text.length < 1) {
+      errors.push({
+        expected: "string.length <= 1",
+        message: "Expected the text to be at least 1 character",
+        received: `${text.length}`,
+      })
+    }
+
     if (text.length > 200) {
       errors.push({
         expected: "string.length <= 200",
