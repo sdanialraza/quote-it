@@ -4,7 +4,7 @@ import { database } from "../../index.js"
 import { convertPropertiesFromDatabase } from "../../util/index.js"
 
 /**
- * Get all the quotes by their author.
+ * Get all the quotes by a specific author.
  */
 export default async function getQuotesByAuthor(request: Request, response: Response) {
   try {

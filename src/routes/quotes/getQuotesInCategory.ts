@@ -4,9 +4,9 @@ import { database } from "../../index.js"
 import { convertPropertiesFromDatabase } from "../../util/index.js"
 
 /**
- * Get all the quotes by their category.
+ * Get all the quotes in a specific category.
  */
-export default async function getQuotesByCategory(request: Request, response: Response) {
+export default async function getQuotesInCategory(request: Request, response: Response) {
   try {
     const category = request.params.category.toLowerCase()
 
