@@ -10,7 +10,7 @@ GET /quotes/:id
 
 ## Parameters
 
-- **id** - The Id of the quote.
+- **id** - The id of the quote.
 
 ### Example Response
 

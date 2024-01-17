@@ -25,15 +25,15 @@ For detailed information on how to use each endpoint, refer to the corresponding
 - [Get Quote By Id](docs/quotes/get-quote-by-id.md)
 - [Get all the quotes by an author](docs/quotes/get-quotes-by-author.md)
 - [Get all the quotes in a category](docs/quotes/get-quotes-in-category.md)
-- [Create a quote](#create-quote)
+- [Create a quote](docs/quotes/create-quote)
 
 ## Quote Structure
 
 | Field      | Type              | Description                         |
 | ---------- | ----------------- | ----------------------------------- |
 | id         | integer           | The id of the quote                 |
-| created_at | ISO8601 timestamp | When the quote was submitted        |
-| updated_at | ISO8601 timestamp | When the quote was last updated     |
+| created_at | ISO8601 timestamp | The date the quote was submitted    |
+| updated_at | ISO8601 timestamp | The date the quote was last updated |
 | author     | string            | The author of the quote             |
 | categories | array of string   | The categories the quote belongs in |
 | submitter  | string            | The submitter of the quote          |
