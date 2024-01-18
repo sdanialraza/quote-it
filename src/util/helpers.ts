@@ -44,8 +44,8 @@ export function validateQuote(quote: unknown) {
 
   const { author, categories, submitter, text } = quote as Record<string, unknown>
 
-  if (typeof author === "string") {
-    if (author.length < 1) {
+  if (typeof author === "string" || typeof author === "undefined") {
+    if (typeof author !== "undefined" && author.length < 1) {
       errors.push({
         expected: "string.length <= 1",
         message: "Expected the author to be at least 1 character",
@@ -53,7 +53,7 @@ export function validateQuote(quote: unknown) {
       })
     }
 
-    if (author.length > 30) {
+    if (typeof author !== "undefined" && author.length > 30) {
       errors.push({
         expected: "string.length <= 30",
         message: "Expected the author to be less than 30 characters",
@@ -62,8 +62,8 @@ export function validateQuote(quote: unknown) {
     }
   } else {
     errors.push({
-      expected: "string",
-      message: `Expected the author to be a string, but received ${typeof author}`,
+      expected: "string | undefined",
+      message: `Expected the author to be a string or undefined, but received ${typeof author}`,
       received: `${author}`,
     })
   }
