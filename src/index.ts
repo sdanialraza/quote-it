@@ -9,6 +9,8 @@ const PORT = Number.parseInt(process.env.PORT, 10)
 const app = express()
 export const database = new PrismaClient()
 
+app.set("trust proxy", 1)
+
 app.use(cors())
 app.use(express.json())
 
