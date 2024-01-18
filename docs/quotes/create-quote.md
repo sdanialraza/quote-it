@@ -2,6 +2,9 @@
 
 Create a quote in the Quote It API. Returns a [quote object](../../README.md#quote-structure) on success.
 
+> [!NOTE]
+> There's a limit of 1 quote per miunute on this endpoint. This is to prevent abuse of the API. If you'd like to create more quotes, please open an issue.
+
 ## Endpoint
 
 ```http

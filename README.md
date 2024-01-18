@@ -32,8 +32,8 @@ For detailed information on how to use each endpoint, refer to the corresponding
 | Field      | Type              | Description                         |
 | ---------- | ----------------- | ----------------------------------- |
 | id         | integer           | The id of the quote                 |
-| created_at | ISO8601 timestamp | The date the quote was submitted    |
-| updated_at | ISO8601 timestamp | The date the quote was last updated |
+| createdAt  | ISO8601 timestamp | The date the quote was submitted    |
+| updatedAt  | ISO8601 timestamp | The date the quote was last updated |
 | author     | string            | The author of the quote             |
 | categories | array of string   | The categories the quote belongs in |
 | submitter  | string            | The submitter of the quote          |
