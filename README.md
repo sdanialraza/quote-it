@@ -23,9 +23,9 @@ For detailed information on how to use each endpoint, refer to the corresponding
 - [Get All Quotes](docs/quotes/get-quotes.md)
 - [Get Random Quote](docs/quotes/get-random-quote.md)
 - [Get Quote By Id](docs/quotes/get-quote-by-id.md)
-- [Get all the quotes by an author](docs/quotes/get-quotes-by-author.md)
-- [Get all the quotes in a category](docs/quotes/get-quotes-in-category.md)
-- [Create a quote](docs/quotes/create-quote.md)
+- [Get Quotes By Author](docs/quotes/get-quotes-by-author.md)
+- [Get Quotes In Category](docs/quotes/get-quotes-in-category.md)
+- [Create Quote](docs/quotes/create-quote.md)
 
 ## Quote Structure
 
