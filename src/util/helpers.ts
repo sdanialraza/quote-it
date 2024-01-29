@@ -1,5 +1,6 @@
 import Filter from "bad-words"
 import type { DatabaseQuote, QuoteUnion, QuoteWithCategoriesArray, ValidationError } from "../types/index.js"
+import { QUOTE_LIMITS } from "./constants.js"
 
 /**
  * Converts the properties of a quote for the database
@@ -45,18 +46,18 @@ export function validateQuote(quote: unknown) {
   const { author, categories, submitter, text } = quote as Record<string, unknown>
 
   if (typeof author === "string" || typeof author === "undefined") {
-    if (typeof author !== "undefined" && author.length < 1) {
+    if (typeof author !== "undefined" && author.length < QUOTE_LIMITS.MinimumAuthorLength) {
       errors.push({
-        expected: "string.length <= 1",
-        message: "Expected the author to be at least 1 character",
+        expected: `string.length <= ${QUOTE_LIMITS.MinimumAuthorLength}`,
+        message: `Expected the author to be at least ${QUOTE_LIMITS.MinimumAuthorLength} character`,
         received: `${author.length}`,
       })
     }
 
-    if (typeof author !== "undefined" && author.length > 30) {
+    if (typeof author !== "undefined" && author.length > QUOTE_LIMITS.MaximumAuthorLength) {
       errors.push({
-        expected: "string.length <= 30",
-        message: "Expected the author to be less than 30 characters",
+        expected: `string.length <= ${QUOTE_LIMITS.MaximumAuthorLength}`,
+        message: `Expected the author to be less than ${QUOTE_LIMITS.MaximumAuthorLength} characters`,
         received: `${author.length}`,
       })
     }
@@ -71,18 +72,18 @@ export function validateQuote(quote: unknown) {
   if (Array.isArray(categories)) {
     for (const category of categories) {
       if (typeof category === "string") {
-        if (category.length < 1) {
+        if (category.length < QUOTE_LIMITS.MinimumCategoryLength) {
           errors.push({
-            expected: "string.length <= 1",
-            message: "Expected each category to be at least 1 character",
+            expected: `string.length <= ${QUOTE_LIMITS.MinimumCategoryLength}`,
+            message: `Expected each category to be at least ${QUOTE_LIMITS.MinimumCategoryLength} character`,
             received: `${category.length}`,
           })
         }
 
-        if (category.length > 20) {
+        if (category.length > QUOTE_LIMITS.MaximumCategoryLength) {
           errors.push({
-            expected: "string.length <= 20",
-            message: "Expected each category to be less than 20 characters",
+            expected: `string.length <= ${QUOTE_LIMITS.MaximumCategoryLength}`,
+            message: `Expected each category to be less than ${QUOTE_LIMITS.MaximumCategoryLength} characters`,
             received: `${category.length}`,
           })
         }
@@ -104,18 +105,18 @@ export function validateQuote(quote: unknown) {
   }
 
   if (typeof submitter === "string") {
-    if (submitter.length < 1) {
+    if (submitter.length < QUOTE_LIMITS.MinimumSubmitterLength) {
       errors.push({
-        expected: "string.length <= 1",
-        message: "Expected the submitter to be at least 1 character",
+        expected: `string.length <= ${QUOTE_LIMITS.MinimumSubmitterLength}`,
+        message: `Expected the submitter to be at least ${QUOTE_LIMITS.MinimumSubmitterLength} character`,
         received: `${submitter.length}`,
       })
     }
 
-    if (submitter.length > 20) {
+    if (submitter.length > QUOTE_LIMITS.MaximumSubmitterLength) {
       errors.push({
-        expected: "string.length <= 20",
-        message: "Expected the submitter to be less than 20 characters",
+        expected: `string.length <= ${QUOTE_LIMITS.MaximumSubmitterLength}`,
+        message: `Expected the submitter to be less than ${QUOTE_LIMITS.MaximumSubmitterLength} characters`,
         received: `${submitter.length}`,
       })
     }
@@ -128,18 +129,18 @@ export function validateQuote(quote: unknown) {
   }
 
   if (typeof text === "string") {
-    if (text.length < 1) {
+    if (text.length < QUOTE_LIMITS.MinimumTextLength) {
       errors.push({
-        expected: "string.length <= 1",
-        message: "Expected the text to be at least 1 character",
+        expected: `string.length <= ${QUOTE_LIMITS.MinimumTextLength}`,
+        message: `Expected the text to be at least ${QUOTE_LIMITS.MinimumTextLength} character`,
         received: `${text.length}`,
       })
     }
 
-    if (text.length > 200) {
+    if (text.length > QUOTE_LIMITS.MaximumTextLength) {
       errors.push({
-        expected: "string.length <= 200",
-        message: "Expected the text to be less than 200 characters",
+        expected: `string.length <= ${QUOTE_LIMITS.MaximumTextLength}`,
+        message: `Expected the text to be less than ${QUOTE_LIMITS.MaximumTextLength} characters`,
         received: `${text.length}`,
       })
     }
