@@ -1,4 +1,4 @@
-import type { QuoteCreation } from "../types/quote.js"
+import type { QuoteCreation } from "../types/quote.js";
 
 /**
  * Initial quotes data
@@ -359,4 +359,4 @@ export const quotes: QuoteCreation[] = [
     submitter: "sdanialraza",
     verified: true,
   },
-]
+];

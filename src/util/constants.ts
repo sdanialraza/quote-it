@@ -1,17 +1,17 @@
 /**
  * The name of the API
  */
-export const NAME = "Quote-It" as const
+export const NAME = "Quote-It" as const;
 
 /**
  * The description of the API
  */
-export const DESCRIPTION = "Your go-to API for inspiring, and thought-provoking quotes." as const
+export const DESCRIPTION = "Your go-to API for inspiring, and thought-provoking quotes." as const;
 
 /**
  * The version of the API
  */
-export const VERSION = "1.0.0" as const
+export const VERSION = "1.0.0" as const;
 
 /**
  * The limits of the quote
@@ -52,4 +52,4 @@ export const QUOTE_LIMITS = {
    * The maximum length of the text
    */
   MaximumTextLength: 200,
-} as const
+} as const;

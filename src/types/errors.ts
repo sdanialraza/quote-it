@@ -8,13 +8,13 @@ export type ValidationError<Expected = string, Received = unknown> = {
   /**
    * The expected type
    */
-  expected: Expected
+  expected: Expected;
   /**
    * The error message
    */
-  message: string
+  message: string;
   /**
    * The received value
    */
-  received: Received
-}
+  received: Received;
+};
