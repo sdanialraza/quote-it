@@ -1,6 +1,6 @@
 import Filter from "bad-words";
 import type { DatabaseQuote, QuoteUnion, QuoteWithCategoriesArray, ValidationError } from "../types/index.js";
-import { QUOTE_LIMITS } from "./constants.js";
+import { QUOTE_LIMITS } from "./index.js";
 
 /**
  * Converts the properties of a quote for the database

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { postRateLimit } from "../util/rateLimit.js";
+import { postRateLimit } from "../util/index.js";
 import getInfo from "./info/getInfo.js";
 import createQuote from "./quotes/createQuote.js";
 import getQuoteById from "./quotes/getQuoteById.js";

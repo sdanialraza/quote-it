@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { database } from "../../index.js";
-import { convertPropertiesForDatabase, convertPropertiesFromDatabase, validateQuote } from "../../util/helpers.js";
+import { convertPropertiesForDatabase, convertPropertiesFromDatabase, validateQuote } from "../../util/index.js";
 
 /**
  * Create a new quote.
